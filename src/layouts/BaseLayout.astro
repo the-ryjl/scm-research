@@ -13,15 +13,17 @@ interface Props {
   noDisclaimer?: boolean;
 }
 
+const siteTitle = 'Research - Stern Capital Management';
+
 const {
-  title = 'Stern Capital Research',
+  title = siteTitle,
   description = 'Student-produced investment research and market insights from Stern Capital Management.',
   image = '/og.png',
   type = 'website',
   publishedDate,
   noDisclaimer = false
 } = Astro.props;
-const pageTitle = title === 'Stern Capital Research' ? title : `${title} | Stern Capital Research`;
+const pageTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(image, Astro.site);
 ---
@@ -36,9 +38,9 @@ const socialImage = new URL(image, Astro.site);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="alternate" type="application/rss+xml" title="Stern Capital Research" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title={siteTitle} href="/rss.xml" />
     <meta property="og:type" content={type} />
-    <meta property="og:site_name" content="Stern Capital Research" />
+    <meta property="og:site_name" content={siteTitle} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
