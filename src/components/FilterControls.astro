@@ -1,0 +1,21 @@
+---
+interface Props {
+  categories: string[];
+  sectors: string[];
+  pods: string[];
+  documentTypes: string[];
+  authors: { id: string; name: string }[];
+}
+const { categories, sectors, pods, documentTypes, authors } = Astro.props;
+---
+<form class="filter-panel" data-filter-form>
+  <label class="search-field"><span>Search publications</span><input type="search" placeholder="Title, ticker, topic…" data-filter-search /><i aria-hidden="true">⌕</i></label>
+  <div class="select-grid">
+    <label><span>Category</span><select data-filter="category"><option value="">All categories</option>{categories.map((v) => <option value={v}>{v}</option>)}</select></label>
+    <label><span>Sector</span><select data-filter="sector"><option value="">All sectors</option>{sectors.map((v) => <option value={v}>{v}</option>)}</select></label>
+    <label><span>Pod</span><select data-filter="pod"><option value="">All pods</option>{pods.map((v) => <option value={v}>{v}</option>)}</select></label>
+    <label><span>Document</span><select data-filter="document"><option value="">All types</option>{documentTypes.map((v) => <option value={v}>{v}</option>)}</select></label>
+    <label><span>Author</span><select data-filter="author"><option value="">All authors</option>{authors.map((v) => <option value={v.id}>{v.name}</option>)}</select></label>
+    <button type="reset" data-filter-reset>Clear filters</button>
+  </div>
+</form>

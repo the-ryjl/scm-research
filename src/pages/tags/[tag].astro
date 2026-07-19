@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { byNewest, slugify } from '../../lib/content';
+export async function getStaticPaths() { const all = await getCollection('publications', ({ data }) => !data.draft); const tags = [...new Set(all.flatMap((p) => p.data.tags))]; return tags.map((tag) => ({ params: { tag: slugify(tag) }, props: { tag } })); }
+const { tag } = Astro.props;
+const publications = (await getCollection('publications', ({ data }) => !data.draft && data.tags.includes(tag))).sort(byNewest);
+const authors = await getCollection('authors');
+---
+<BaseLayout title={`#${tag}`} description={`Stern Capital Research publications tagged ${tag}.`}><header class="taxonomy-header"><div class="shell"><Breadcrumbs items={[{ label: 'Research', href: '/research/' }, { label: `#${tag}` }]} /><span class="eyebrow">Research topic</span><h1>#{tag}</h1><span class="publication-count">{publications.length} publication{publications.length === 1 ? '' : 's'}</span></div></header><section class="section shell"><div class="article-grid">{publications.map((publication, index) => <ArticleCard publication={publication} author={authors.find((author) => author.id === publication.data.author)} index={index} />)}</div></section></BaseLayout>

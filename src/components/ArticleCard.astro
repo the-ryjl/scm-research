@@ -1,0 +1,22 @@
+---
+import type { Publication, Author } from '../lib/content';
+import CategoryBadge from './CategoryBadge.astro';
+import ArticleMetadata from './ArticleMetadata.astro';
+interface Props { publication: Publication; author?: Author; index?: number; }
+const { publication, author, index = 0 } = Astro.props;
+---
+<article class="article-card reveal" style={`--delay:${Math.min(index, 5) * 70}ms`} data-article-card data-category={publication.data.category} data-sector={publication.data.sector} data-pod={publication.data.pod} data-document={publication.data.documentType} data-author={publication.data.author} data-tags={publication.data.tags.join('|').toLowerCase()} data-search={`${publication.data.title} ${publication.data.description} ${publication.data.tickerSymbols.join(' ')}`.toLowerCase()}>
+  <div class={`cover cover-${(index % 5) + 1}`} aria-hidden="true">
+    <span>{publication.data.tickerSymbols[0] || publication.data.sector.slice(0, 3).toUpperCase()}</span>
+    <i></i><i></i><i></i>
+  </div>
+  <div class="article-card-body">
+    <div class="card-topline">
+      <CategoryBadge label={publication.data.category} href={`/category/${publication.data.category.toLowerCase().replaceAll(' ', '-')}/`} />
+      <span>{publication.data.documentType}</span>
+    </div>
+    <h3><a href={`/research/${publication.id}/`}>{publication.data.title}</a></h3>
+    <p>{publication.data.description}</p>
+    <ArticleMetadata publication={publication} author={author} />
+  </div>
+</article>

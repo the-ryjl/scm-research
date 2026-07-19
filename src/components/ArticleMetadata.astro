@@ -1,0 +1,12 @@
+---
+import type { Publication, Author } from '../lib/content';
+import { formatDate } from '../lib/content';
+interface Props { publication: Publication; author?: Author; inverse?: boolean; }
+const { publication, author, inverse = false } = Astro.props;
+---
+<div class:list={['article-metadata', { inverse }]}>
+  <span>{formatDate(publication.data.publishedDate)}</span>
+  <span aria-hidden="true">·</span>
+  <span>{publication.data.readingTime} min read</span>
+  {author && <><span aria-hidden="true">·</span><a href={`/authors/${author.id}/`}>{author.data.name}</a></>}
+</div>

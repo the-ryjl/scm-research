@@ -1,0 +1,8 @@
+---
+import { slugify } from '../lib/content';
+interface Props { tags: string[]; linked?: boolean; }
+const { tags, linked = true } = Astro.props;
+---
+<ul class="tag-list" aria-label="Tags">
+  {tags.map((tag) => <li>{linked ? <a href={`/tags/${slugify(tag)}/`}>#{tag}</a> : <span>#{tag}</span>}</li>)}
+</ul>

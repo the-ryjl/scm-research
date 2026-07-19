@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CategoryBadge from '../../components/CategoryBadge.astro';
+import ArticleMetadata from '../../components/ArticleMetadata.astro';
+import TagList from '../../components/TagList.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+import { byNewest } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('publications', ({ data }) => !data.draft);
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const authors = await getCollection('authors');
+const author = authors.find((item) => item.id === entry.data.author);
+const all = (await getCollection('publications', ({ data }) => !data.draft)).sort(byNewest);
+const related = all.filter((item) => item.id !== entry.id && (item.data.category === entry.data.category || item.data.tags.some((tag) => entry.data.tags.includes(tag)))).slice(0, 3);
+---
+<BaseLayout title={entry.data.title} description={entry.data.description} type="article" publishedDate={entry.data.publishedDate}>
+  <header class="article-header">
+    <div class="shell">
+      <Breadcrumbs items={[{ label: 'Research', href: '/research/' }, { label: entry.data.category, href: `/category/${entry.data.category.toLowerCase().replaceAll(' ', '-')}/` }, { label: entry.data.title }]} />
+      <div class="article-heading"><CategoryBadge label={entry.data.documentType} tone="dark" /><h1>{entry.data.title}</h1><p>{entry.data.description}</p></div>
+      <div class="article-header-bottom"><ArticleMetadata publication={entry} author={author} inverse /><div class="ticker-list">{entry.data.tickerSymbols.map((ticker) => <span>{ticker}</span>)}</div></div>
+    </div>
+  </header>
+  <div class="article-layout">
+    <aside class="article-aside"><div class="article-aside-inner"><h2>Written by</h2><div class="article-author-mini">{author ? <><a href={`/authors/${author.id}/`}>{author.data.name}</a><span>{author.data.role}<br />{author.data.pod} Pod</span></> : <span>SCM Research Team</span>}</div><TagList tags={entry.data.tags} /></div></aside>
+    <article class="prose"><Content /><div class="article-disclaimer"><strong>Important:</strong> This placeholder research was produced for educational demonstration. Figures and scenarios are illustrative, investments are simulated, and nothing here is investment advice or a recommendation.</div></article>
+  </div>
+  <RelatedArticles publications={related} authors={authors} />
+</BaseLayout>

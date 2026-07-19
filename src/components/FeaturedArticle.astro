@@ -1,0 +1,23 @@
+---
+import type { Publication, Author } from '../lib/content';
+import CategoryBadge from './CategoryBadge.astro';
+import ArticleMetadata from './ArticleMetadata.astro';
+interface Props { publication: Publication; author?: Author; }
+const { publication, author } = Astro.props;
+---
+<article class="featured-article">
+  <div class="featured-copy">
+    <div class="eyebrow">Featured publication <span></span> {publication.data.documentType}</div>
+    <CategoryBadge label={publication.data.category} tone="dark" />
+    <h2><a href={`/research/${publication.id}/`}>{publication.data.title}</a></h2>
+    <p>{publication.data.description}</p>
+    <ArticleMetadata publication={publication} author={author} inverse />
+    <a class="text-link light" href={`/research/${publication.id}/`}>Read the publication <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="featured-visual" aria-hidden="true">
+    <span class="visual-kicker">Research note / 01</span>
+    <div class="chart-grid"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="chart-line"></div>
+    <span class="visual-ticker">{publication.data.tickerSymbols.join(' · ') || 'SCM'}</span>
+  </div>
+</article>

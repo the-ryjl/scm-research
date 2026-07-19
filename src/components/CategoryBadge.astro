@@ -1,0 +1,5 @@
+---
+interface Props { label: string; href?: string; tone?: 'light' | 'dark'; }
+const { label, href, tone = 'light' } = Astro.props;
+---
+{href ? <a class:list={['category-badge', tone]} href={href}>{label}</a> : <span class:list={['category-badge', tone]}>{label}</span>}

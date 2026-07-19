@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import FilterControls from '../../components/FilterControls.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import { byNewest } from '../../lib/content';
+const publications = (await getCollection('publications', ({ data }) => !data.draft)).sort(byNewest);
+const authors = await getCollection('authors');
+const unique = (values: string[]) => [...new Set(values)].sort();
+---
+<BaseLayout title="Research Archive" description="Browse all student-produced Stern Capital Research publications by category, sector, pod, document type, and author.">
+  <header class="page-intro"><div class="shell page-intro-grid"><div><span class="eyebrow">Publication library</span><h1>Research archive</h1></div><div><p>Browse student-produced investment theses, sector reports, market commentary, and educational primers.</p><span class="publication-count">{publications.length} publications · Updated regularly</span></div></div></header>
+  <section class="archive-section shell">
+    <FilterControls categories={unique(publications.map((p) => p.data.category))} sectors={unique(publications.map((p) => p.data.sector))} pods={unique(publications.map((p) => p.data.pod))} documentTypes={unique(publications.map((p) => p.data.documentType))} authors={authors.map((author) => ({ id: author.id, name: author.data.name }))} />
+    <div class="archive-status"><span>Showing <strong data-result-count>{publications.length}</strong> publications</span><span>Newest first</span></div>
+    <div class="article-grid" data-results>{publications.map((publication, index) => <ArticleCard publication={publication} author={authors.find((author) => author.id === publication.data.author)} index={index} />)}</div>
+    <EmptyState />
+  </section>
+  <script is:inline>
+    const form = document.querySelector('[data-filter-form]');
+    const cards = [...document.querySelectorAll('[data-article-card]')];
+    const count = document.querySelector('[data-result-count]');
+    const empty = document.querySelector('[data-empty-state]');
+    const apply = () => {
+      const query = form.querySelector('[data-filter-search]').value.trim().toLowerCase();
+      const filters = [...form.querySelectorAll('[data-filter]')];
+      let visible = 0;
+      cards.forEach((card) => {
+        const matchesQuery = !query || card.dataset.search.includes(query) || card.dataset.tags.includes(query);
+        const matchesFilters = filters.every((control) => !control.value || card.dataset[control.dataset.filter] === control.value);
+        const show = matchesQuery && matchesFilters;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      count.textContent = visible;
+      empty.hidden = visible !== 0;
+    };
+    form.addEventListener('input', apply);
+    form.addEventListener('reset', () => requestAnimationFrame(apply));
+  </script>
+</BaseLayout>

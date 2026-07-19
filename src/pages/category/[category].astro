@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { byNewest, slugify } from '../../lib/content';
+export async function getStaticPaths() { const all = await getCollection('publications', ({ data }) => !data.draft); const names = [...new Set(all.flatMap((p) => [p.data.category, p.data.pod]))]; return names.map((name) => ({ params: { category: slugify(name) }, props: { name } })); }
+const { name } = Astro.props;
+const all = (await getCollection('publications', ({ data }) => !data.draft)).sort(byNewest);
+const publications = all.filter((p) => p.data.category === name || p.data.pod === name);
+const authors = await getCollection('authors');
+---
+<BaseLayout title={`${name} Research`} description={`Student-produced ${name} research from Stern Capital Research.`}><header class="taxonomy-header"><div class="shell"><Breadcrumbs items={[{ label: 'Research', href: '/research/' }, { label: name }]} /><span class="eyebrow">Coverage collection</span><h1>{name}</h1><span class="publication-count">{publications.length} publication{publications.length === 1 ? '' : 's'}</span></div></header><section class="section shell"><div class="article-grid">{publications.map((publication, index) => <ArticleCard publication={publication} author={authors.find((author) => author.id === publication.data.author)} index={index} />)}</div></section></BaseLayout>

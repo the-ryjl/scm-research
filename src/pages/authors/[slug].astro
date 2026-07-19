@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { byNewest, getInitials } from '../../lib/content';
+export async function getStaticPaths() { const authors = await getCollection('authors'); return authors.map((author) => ({ params: { slug: author.id }, props: { author } })); }
+const { author } = Astro.props;
+const publications = (await getCollection('publications', ({ data }) => !data.draft && data.author === author.id)).sort(byNewest);
+---
+<BaseLayout title={author.data.name} description={`${author.data.name} is a ${author.data.role} contributing to Stern Capital Research.`}>
+  <header class="author-profile-header"><div class="shell"><Breadcrumbs items={[{ label: 'Authors', href: '/authors/' }, { label: author.data.name }]} /><div class="profile-grid"><div class="profile-avatar">{author.data.headshot ? <img src={author.data.headshot} alt={author.data.name} /> : getInitials(author.data.name)}</div><div class="profile-copy"><span class="eyebrow">{author.data.pod} Pod · Class of {author.data.graduationYear}</span><h1>{author.data.name}</h1><p><strong>{author.data.role}.</strong> {author.data.biography}</p><div class="profile-links">{author.data.email && <a href={`mailto:${author.data.email}`}>Email</a>}{author.data.linkedin && <a href={author.data.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a>}</div></div></div></div></header>
+  <section class="section shell"><div class="section-heading"><div><span class="eyebrow">Published work</span><h2>Research by {author.data.name.split(' ')[0]}</h2></div><span class="publication-count">{publications.length} publication{publications.length === 1 ? '' : 's'}</span></div><div class="article-grid">{publications.map((publication, index) => <ArticleCard publication={publication} author={author} index={index} />)}</div></section>
+</BaseLayout>

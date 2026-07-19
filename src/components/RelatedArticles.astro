@@ -1,0 +1,10 @@
+---
+import type { Publication, Author } from '../lib/content';
+import ArticleCard from './ArticleCard.astro';
+interface Props { publications: Publication[]; authors: Author[]; }
+const { publications, authors } = Astro.props;
+---
+{publications.length > 0 && <section class="section shell related-section">
+  <div class="section-heading"><div><span class="eyebrow">Keep reading</span><h2>Related research</h2></div><a class="text-link" href="/research/">View all research <span aria-hidden="true">→</span></a></div>
+  <div class="article-grid compact-grid">{publications.map((publication, index) => <ArticleCard publication={publication} author={authors.find((author) => author.id === publication.data.author)} index={index} />)}</div>
+</section>}

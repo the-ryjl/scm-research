@@ -1,0 +1,13 @@
+---
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+<aside class:list={['disclaimer', { compact }]} aria-label="Educational content disclaimer">
+  <div class="shell disclaimer-inner">
+    <span class="disclaimer-mark" aria-hidden="true">i</span>
+    <div>
+      <strong>Educational use only.</strong>
+      <p>The content is produced by students for educational purposes only. All investments and portfolios discussed are simulated unless otherwise stated. Nothing on this site constitutes investment advice, an offer, or a recommendation to buy or sell securities. The views expressed belong to the individual authors and do not necessarily represent Stern Capital Management or New York University.</p>
+    </div>
+  </div>
+</aside>

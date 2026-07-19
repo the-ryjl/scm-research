@@ -1,0 +1,28 @@
+---
+const path = Astro.url.pathname;
+const active = (href: string) => href === '/' ? path === '/' : path.startsWith(href);
+---
+<header class="site-header">
+  <div class="utility-bar">
+    <div class="shell utility-inner">
+      <span>Student research · NYU Stern</span>
+      <a href="https://www.sterncapitalmanagement.org" target="_blank" rel="noopener">Main SCM site <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="shell nav-shell">
+    <a class="brand" href="/" aria-label="Stern Capital Research home">
+      <img src="/brand/scm-logo-dark.png" alt="Stern Capital Management" width="680" height="151" />
+      <span class="brand-divider" aria-hidden="true"></span>
+      <span class="brand-label">Research</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-menu-toggle>
+      <span></span><span></span>
+    </button>
+    <nav class="main-nav" aria-label="Primary navigation" data-menu>
+      <a href="/research/" aria-current={active('/research') ? 'page' : undefined}>Research</a>
+      <a href="/authors/" aria-current={active('/authors') ? 'page' : undefined}>Authors</a>
+      <a href="/about/" aria-current={active('/about') ? 'page' : undefined}>About</a>
+      <a class="nav-cta" href="/rss.xml">Follow the feed</a>
+    </nav>
+  </div>
+</header>
