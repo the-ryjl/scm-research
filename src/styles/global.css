@@ -86,6 +86,7 @@ button, input, select { font: inherit; }
 .featured-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: clamp(42px, 7vw, 85px); }
 .featured-copy .eyebrow { color: var(--green-light); }
 .featured-copy .eyebrow span { display: inline-block; width: 28px; height: 1px; margin: 0 8px 3px; background: currentColor; }
+.featured-copy > .category-badge { margin-top: 12px; }
 .featured-copy h2 { max-width: 680px; margin: 25px 0 16px; font-family: var(--display); font-size: clamp(2.6rem, 4.3vw, 4.8rem); font-weight: 400; line-height: .98; letter-spacing: -.03em; }
 .featured-copy > p { max-width: 620px; margin: 0 0 20px; color: rgba(255,255,255,.69); }
 .featured-copy .text-link { margin-top: 35px; }
