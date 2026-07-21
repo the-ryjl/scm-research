@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { byNewest, slugify } from '../../lib/content';
-export async function getStaticPaths() { const all = await getCollection('publications', ({ data }) => !data.draft); const names = [...new Set(all.flatMap((p) => [p.data.category, p.data.pod]))]; return names.map((name) => ({ params: { category: slugify(name) }, props: { name } })); }
+export async function getStaticPaths() { const all = await getCollection('publications', ({ data }) => !data.draft); const names = [...new Set(all.flatMap((p) => p.data.pod ? [p.data.category, p.data.pod] : [p.data.category]))]; return names.map((name) => ({ params: { category: slugify(name) }, props: { name } })); }
 const { name } = Astro.props;
 const all = (await getCollection('publications', ({ data }) => !data.draft)).sort(byNewest);
 const publications = all.filter((p) => p.data.category === name || p.data.pod === name);

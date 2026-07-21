@@ -12,7 +12,6 @@ const authors = await getCollection('authors');
 const featured = publications.find((entry) => entry.data.featured) ?? publications[0];
 const recent = publications.filter((entry) => entry.id !== featured.id).slice(0, 6);
 const coverage = [
-  { title: 'Consumer', text: 'Brands, retail, pricing power, and changing household behavior.', count: publications.filter((p) => p.data.pod === 'Consumer').length },
   { title: 'Technology', text: 'Software, semiconductors, platforms, and digital infrastructure.', count: publications.filter((p) => p.data.pod === 'Technology').length },
   { title: 'Healthcare', text: 'Care delivery, medtech, biopharma, and healthcare services.', count: publications.filter((p) => p.data.pod === 'Healthcare').length },
   { title: 'Global Macro', text: 'Currencies, rates, cross-asset signals, and market regimes.', count: publications.filter((p) => p.data.pod === 'Global Macro').length },

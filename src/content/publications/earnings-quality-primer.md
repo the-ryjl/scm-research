@@ -5,7 +5,6 @@ author: maya-chen
 publishedDate: 2026-02-26
 category: Educational Research
 sector: Cross-sector
-pod: Consumer
 documentType: Research Primer
 tags: [Accounting, Cash Flow, Research Methods]
 featured: false

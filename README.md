@@ -23,7 +23,7 @@ npm run build
 4. Write the article in Markdown beneath the frontmatter.
 5. Keep `draft: true` while editing, then change it to `false` to publish.
 
-Required publication fields are validated in `src/content.config.ts`: title, description, author, dates, category, sector, pod, document type, tags, featured/draft status, optional cover image, reading time, and ticker symbols.
+Publication fields are validated in `src/content.config.ts`: title, description, author, dates, category, sector, document type, tags, featured/draft status, optional pod and cover image, reading time, and ticker symbols.
 
 All new content should preserve the educational disclaimer and distinguish sourced facts from estimates, scenarios, and author judgments.
 

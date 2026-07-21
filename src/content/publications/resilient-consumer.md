@@ -6,7 +6,6 @@ publishedDate: 2026-04-18
 updatedDate: 2026-04-24
 category: Consumer
 sector: Consumer Discretionary
-pod: Consumer
 documentType: Investment Thesis
 tags: [Pricing Power, Brands, Unit Economics]
 featured: true

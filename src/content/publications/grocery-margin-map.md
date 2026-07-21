@@ -5,7 +5,6 @@ author: maya-chen
 publishedDate: 2026-01-14
 category: Consumer
 sector: Consumer Staples
-pod: Consumer
 documentType: Industry Report
 tags: [Grocery, Retail, Margins]
 featured: false
