@@ -14,7 +14,7 @@ const recent = publications.filter((entry) => entry.id !== featured.id).slice(0,
 const coverage = [
   { title: 'Technology', text: 'Software, semiconductors, platforms, and digital infrastructure.', count: publications.filter((p) => p.data.pod === 'Technology').length },
   { title: 'Healthcare', text: 'Care delivery, medtech, biopharma, and healthcare services.', count: publications.filter((p) => p.data.pod === 'Healthcare').length },
-  { title: 'Global Macro', text: 'Currencies, rates, cross-asset signals, and market regimes.', count: publications.filter((p) => p.data.pod === 'Global Macro').length },
+  { title: 'Fixed Income and Currencies', text: 'Currencies, rates, cross-asset signals, and market regimes.', count: publications.filter((p) => p.data.pod === 'Fixed Income and Currencies').length },
   { title: 'Methods', href: '/category/educational-research/', text: 'Frameworks for valuation, accounting, and research practice.', count: publications.filter((p) => p.data.category === 'Educational Research').length },
   { title: 'All Research', href: '/research/', text: 'Browse every student-authored publication in the archive.', count: publications.length }
 ];

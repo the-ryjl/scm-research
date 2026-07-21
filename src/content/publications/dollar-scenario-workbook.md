@@ -5,7 +5,7 @@ author: daniel-kim
 publishedDate: 2026-03-15
 category: Forex
 sector: Currencies
-pod: Global Macro
+pod: Fixed Income and Currencies
 documentType: Market Commentary
 tags: [US Dollar, Rates, Scenarios]
 featured: false

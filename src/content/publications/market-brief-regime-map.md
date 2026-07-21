@@ -5,7 +5,7 @@ author: daniel-kim
 publishedDate: 2026-02-12
 category: Market Commentary
 sector: Multi-asset
-pod: Global Macro
+pod: Fixed Income and Currencies
 documentType: Market Brief
 tags: [Market Regimes, Inflation, Liquidity]
 featured: false
