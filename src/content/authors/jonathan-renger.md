@@ -1,9 +1,9 @@
 ---
 name: Jonathan Renger
-role: Consumer PM
-biography: Our club president Jonathan focuses on consumer behavior, brand durability, and the unit economics behind retail businesses. She is interested in how qualitative evidence and financial statements can inform one another.
+role: Healthcare PM
+biography: Our club president Jonathan focuses on biotechnology, healthcare innovation, and the financial drivers behind biotech companies. He brings prior experience working in the healtchare sector and is interested in how scientific developments can inform investment decisions.
 linkedin: https://www.linkedin.com/
 email: jwr8808@stern.nyu.edu
-pod: Consumer
+pod: Healthcare
 graduationYear: 2027
 ---
