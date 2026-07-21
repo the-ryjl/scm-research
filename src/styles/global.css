@@ -133,7 +133,9 @@ button, input, select { font: inherit; }
 .coverage-card > span { color: var(--green-light); font-size: .7rem; font-weight: 700; }
 .coverage-card h3 { margin: 42px 0 8px; font-family: var(--display); font-size: 2rem; font-weight: 400; }
 .coverage-card p { color: rgba(255,255,255,.56); font-size: .82rem; }
-.coverage-card a { display: flex; justify-content: space-between; align-items: end; height: 100%; }
+.coverage-card a { position: relative; display: flex; justify-content: space-between; align-items: end; height: 100%; }
+.coverage-card a > div { padding-top: 1.65rem; }
+.coverage-card a > div > span { position: absolute; top: 0; left: 0; }
 .coverage-card b { font-size: 1.3rem; transition: transform .2s; }.coverage-card:hover b { transform: translate(3px,-3px); }
 
 /* Authors */
