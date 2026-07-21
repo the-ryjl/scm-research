@@ -8,7 +8,7 @@ sector: Software
 pod: Technology
 documentType: Industry Report
 tags: [Artificial Intelligence, Software, Margins]
-featured: false
+featured: true
 draft: false
 readingTime: 10
 tickerSymbols: [AIXX]

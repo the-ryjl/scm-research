@@ -8,7 +8,7 @@ category: Consumer
 sector: Consumer Discretionary
 documentType: Investment Thesis
 tags: [Pricing Power, Brands, Unit Economics]
-featured: true
+featured: false
 draft: false
 coverImage: /brand/nyu-stern.jpg
 readingTime: 12
