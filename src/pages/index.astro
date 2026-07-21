@@ -5,7 +5,6 @@ import Hero from '../components/Hero.astro';
 import FeaturedArticle from '../components/FeaturedArticle.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import AuthorCard from '../components/AuthorCard.astro';
-import NewsletterCallout from '../components/NewsletterCallout.astro';
 import { byNewest, slugify } from '../lib/content';
 
 const publications = (await getCollection('publications', ({ data }) => !data.draft)).sort(byNewest);
@@ -40,5 +39,4 @@ const coverage = [
     <div class="section-heading"><div><span class="eyebrow">The contributors</span><h2>Student analysts</h2></div><a class="text-link" href="/authors/">Meet every author <span aria-hidden="true">→</span></a></div>
     <div class="author-grid">{authors.slice(0, 4).map((author) => <AuthorCard author={author} count={publications.filter((p) => p.data.author === author.id).length} />)}</div>
   </section>
-  <NewsletterCallout />
 </BaseLayout>

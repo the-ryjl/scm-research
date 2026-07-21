@@ -54,7 +54,7 @@ src/
   content/           Authors and Markdown publications
   content.config.ts  Collection schemas
   layouts/           Shared document and SEO layout
-  pages/             Static and dynamic routes, RSS, robots
+  pages/             Static and dynamic routes, robots
   styles/            Theme and responsive styles
 public/               Brand assets, favicon, social card
 ```
