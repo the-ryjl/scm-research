@@ -1,6 +1,6 @@
 ---
 name: SCM Research Team
-headshot: scm-research-team.png
+headshot: /authors/scm-research-team.png
 authorType: team
 role: Editorial Committee
 scope: Organization-wide · All Investment Pods
