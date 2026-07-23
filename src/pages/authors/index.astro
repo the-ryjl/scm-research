@@ -6,6 +6,6 @@ const authors = await getCollection('authors');
 const publications = await getCollection('publications', ({ data }) => !data.draft);
 ---
 <BaseLayout title="Authors" description="Meet the students contributing to Stern Capital Management.">
-  <header class="page-intro"><div class="shell page-intro-grid"><div><span class="eyebrow">Our contributors</span><h1>Authors</h1></div><div><p>Meet the student analysts behind our investment theses, industry reports, market notes, and research primers.</p><span class="publication-count">{authors.length} contributors · {publications.length} publications</span></div></div></header>
+  <header class="page-intro"><div class="shell page-intro-grid"><div><span class="eyebrow">Our contributors</span><h1>Authors</h1></div><div><p>Meet the students behind our investment theses, industry reports, market notes, and research primers.</p><span class="publication-count">{authors.length} contributors · {publications.length} publications</span></div></div></header>
   <section class="section shell"><div class="author-grid">{authors.map((author) => <AuthorCard author={author} count={publications.filter((p) => p.data.author === author.id).length} />)}</div></section>
 </BaseLayout>

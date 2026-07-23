@@ -27,13 +27,15 @@ const authors = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/authors' }),
   schema: z.object({
     name: z.string(),
+    authorType: z.enum(['person', 'team']).default('person'),
     role: z.string(),
     biography: z.string(),
     headshot: z.string().optional(),
     linkedin: z.url().optional(),
     email: z.email().optional(),
-    pod: z.string(),
-    graduationYear: z.number().int()
+    pod: z.string().optional(),
+    scope: z.string().optional(),
+    graduationYear: z.number().int().optional()
   })
 });
 

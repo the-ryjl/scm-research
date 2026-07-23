@@ -16,6 +16,9 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const authors = await getCollection('authors');
 const author = authors.find((item) => item.id === entry.data.author);
+const authorAffiliation = author?.data.authorType === 'team'
+  ? author.data.scope
+  : author?.data.pod ? `${author.data.pod} Pod` : undefined;
 const all = (await getCollection('publications', ({ data }) => !data.draft)).sort(byNewest);
 const related = all.filter((item) => item.id !== entry.id && (item.data.category === entry.data.category || item.data.tags.some((tag) => entry.data.tags.includes(tag)))).slice(0, 3);
 ---
@@ -28,7 +31,7 @@ const related = all.filter((item) => item.id !== entry.id && (item.data.category
     </div>
   </header>
   <div class="article-layout">
-    <aside class="article-aside"><div class="article-aside-inner"><h2>Written by</h2><div class="article-author-mini">{author ? <><a href={`/authors/${author.id}/`}>{author.data.name}</a><span>{author.data.role}<br />{author.data.pod} Pod</span></> : <span>SCM Research Team</span>}</div><TagList tags={entry.data.tags} /></div></aside>
+    <aside class="article-aside"><div class="article-aside-inner"><h2>Written by</h2><div class="article-author-mini">{author ? <><a href={`/authors/${author.id}/`}>{author.data.name}</a><span>{author.data.role}{authorAffiliation && <><br />{authorAffiliation}</>}</span></> : <span>SCM Research Team</span>}</div><TagList tags={entry.data.tags} /></div></aside>
     <article class="prose"><Content /><div class="article-disclaimer"><strong>Important:</strong> This placeholder research was produced for educational demonstration. Figures and scenarios are illustrative, investments are simulated, and nothing here is investment advice or a recommendation.</div></article>
   </div>
   <RelatedArticles publications={related} authors={authors} />
