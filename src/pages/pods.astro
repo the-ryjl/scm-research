@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Investment Pods" description="How Stern Capital Management's Technology and Fixed Income and Credit investment pods organize coverage, research, and portfolio learning.">
+  <header class="page-intro pods-intro">
+    <div class="shell page-intro-grid">
+      <div><span class="eyebrow">Investment pods</span><h1>Depth before breadth.</h1></div>
+      <div><p>Our two pods are designed around clear ownership, written investment views, and teams that can grow as coverage expands.</p><span class="publication-count">Technology · Fixed Income and Credit</span></div>
+    </div>
+  </header>
+
+  <section class="pod-section shell" id="technology" aria-labelledby="technology-title">
+    <div class="pod-heading">
+      <div><span class="pod-number">01</span><span class="eyebrow">Technology</span></div>
+      <div><h2 id="technology-title">Sector specialization.</h2><p>Technology is too broad for generalist coverage. Each analyst owns a distinct subsector, develops fluency in its companies and industry structure, and produces research that can be challenged by the wider pod.</p></div>
+    </div>
+    <div class="subsector-grid" aria-label="Technology coverage areas">
+      <article><span>01</span><h3>Software</h3><p>Enterprise and consumer software, cloud applications, infrastructure, and security.</p></article>
+      <article><span>02</span><h3>Fintech &amp; Payments</h3><p>Payment networks, processors, financial platforms, and emerging financial technology.</p></article>
+      <article><span>03</span><h3>Internet</h3><p>Large-cap platforms and e-commerce, with room for dedicated gaming and online travel coverage.</p></article>
+      <article><span>04</span><h3>Semiconductors</h3><p>Design, manufacturing, equipment, and the infrastructure supporting the chip value chain.</p></article>
+      <article><span>05</span><h3>Media</h3><p>Streaming, entertainment, and the changing economics of content and distribution.</p></article>
+      <article><span>06</span><h3>Digital Infrastructure</h3><p>Cloud, data centers, networking, and the physical systems behind the digital economy.</p></article>
+    </div>
+    <div class="pod-callout"><span class="eyebrow">A scalable model</span><p>Analyst assignments stay non-overlapping: software and fintech and payments, for example, belong to different owners. As the pod grows from five to ten or fifteen members, large subsectors can become teams without changing the underlying structure.</p></div>
+  </section>
+
+  <section class="fic-section" id="fixed-income-credit" aria-labelledby="fic-title">
+    <div class="shell">
+      <div class="pod-heading inverse">
+        <div><span class="pod-number">02</span><span class="eyebrow">Fixed Income and Credit</span></div>
+        <div><h2 id="fic-title">One portfolio. Two connected views.</h2><p>An AGG-benchmarked manager needs both a rates view and a credit view. The pod develops each independently, then brings them together in a documented portfolio position.</p></div>
+      </div>
+      <div class="team-grid">
+        <article>
+          <span class="team-label">Team 01</span><h3>Macro and Rates</h3>
+          <p>Develops views on interest-rate direction, portfolio duration, and—over time—the shape of the yield curve.</p>
+          <h4>Core deliverable</h4><p>A short memo before major employment, inflation, and Federal Reserve events, generally about once per month, stating the expected outcome and how the simulated portfolio is positioned.</p>
+        </article>
+        <article>
+          <span class="team-label">Team 02</span><h3>Credit</h3>
+          <p>Determines the appropriate level and quality of credit exposure relative to the benchmark rather than working under a fixed high-yield limit.</p>
+          <h4>Core deliverable</h4><p>A written view of the credit cycle, current versus historical spreads, issuance, and key risks, expressed through investment-grade, high-yield, or distressed exposure.</p>
+        </article>
+      </div>
+      <div class="benchmark-panel">
+        <div><span class="eyebrow">Benchmark discipline</span><h3>Measure every decision against AGG.</h3></div>
+        <div class="benchmark-list">
+          <div><b>50–100 bp</b><span>Educational annual outperformance target</span></div>
+          <div><b>Daily</b><span>Relative performance monitoring using the AGG ETF</span></div>
+          <div><b>Rates + credit</b><span>Attribution of where the pod is making or losing money</span></div>
+        </div>
+        <p>The pod studies the duration and credit exposures of the Bloomberg U.S. Aggregate Bond Index, uses the AGG ETF as a practical daily comparison, and assigns an owner to maintain the tracker. Meetings begin with a concise performance summary and relevant market developments. The target is an educational objective, not a promise of investment performance.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

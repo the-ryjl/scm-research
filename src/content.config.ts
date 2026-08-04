@@ -2,6 +2,8 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
+const investmentPod = z.enum(['Technology', 'Fixed Income and Credit']);
+
 const publications = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/publications' }),
   schema: z.object({
@@ -12,7 +14,7 @@ const publications = defineCollection({
     updatedDate: z.coerce.date().optional(),
     category: z.string(),
     sector: z.string(),
-    pod: z.string().optional(),
+    pod: investmentPod.optional(),
     documentType: z.string(),
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
@@ -33,7 +35,7 @@ const authors = defineCollection({
     headshot: z.string().optional(),
     linkedin: z.url().optional(),
     email: z.email().optional(),
-    pod: z.string().optional(),
+    pod: investmentPod.optional(),
     scope: z.string().optional(),
     graduationYear: z.number().int().optional()
   })

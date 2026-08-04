@@ -3,13 +3,14 @@ title: "Introducing Research @ Stern Capital Management"
 description: "Introducing SCM Research, a student-led publication built around Stern Capital Management's investment pod program."
 author: scm-research-team
 publishedDate: 2026-07-22
+updatedDate: 2026-08-04
 category: Organization Update
 sector: Cross-sector
 documentType: Announcement
 tags: [SCM Research, Investment Pods]
 featured: true
 draft: false
-readingTime: 4
+readingTime: 6
 tickerSymbols: []
 ---
 
@@ -21,17 +22,24 @@ The initiative is built on a simple belief: investment judgment improves when id
 
 ## Research built through our pods
 
-SCM's investment pods bring together members with shared interests and complementary perspectives. Our initial coverage spans:
+SCM's two investment pods bring together members with shared interests and complementary perspectives. Our coverage spans:
 
-- **Technology**, including software, semiconductors, platforms, and digital infrastructure;
-- **Healthcare**, including biotechnology, medtech, care delivery, and healthcare services; and
-- **Fixed Income and Currencies**, including rates, foreign exchange, cross-asset signals, and market regimes.
+- **Technology**, built around specialized analyst ownership across software, fintech and payments, internet, semiconductors, media, and digital infrastructure; and
+- **Fixed Income and Credit**, combining macro and rates strategy with investment-grade, high-yield, and distressed credit research.
+
+Specialization is central to the Technology pod. Analysts own distinct subsectors rather than combining unrelated coverage areas, and large universes can grow from individual assignments into small teams as membership expands. Software and fintech and payments, for example, are separate areas; internet coverage can be divided further among large-cap platforms, gaming, and online travel.
+
+The Fixed Income and Credit pod is organized around two connected responsibilities. The Macro and Rates team develops views on rates, duration, and the shape of the yield curve. The Credit team assesses the appropriate level and quality of credit exposure by studying spreads, issuance, the credit cycle, and downside risk.
 
 Some questions will not fit neatly within one pod. We will also publish cross-sector research on valuation, accounting, portfolio thinking, and the methods that help turn information into an investment view.
 
 ## What we will publish
 
 Readers can expect company and industry research, market commentary, educational primers, and reusable analytical frameworks. The format may change with the question, but every publication should make its reasoning easy to follow.
+
+The Macro and Rates team will prepare short views ahead of major employment, inflation, and Federal Reserve events, explaining both its expectations and the simulated positioning used to express them. The Credit team will document its view of credit conditions and how that view affects allocations across investment-grade, high-yield, and distressed credit.
+
+The Fixed Income and Credit pod will use the Bloomberg U.S. Aggregate Bond Index, with the AGG exchange-traded fund as a practical daily comparison, to evaluate its simulated portfolio. The educational objective is to target 50–100 basis points of annual outperformance, monitor relative performance daily, and attribute gains and losses between rates, duration, and credit decisions. This objective is part of the learning process and is not a promise of investment performance.
 
 Our goal is not to manufacture certainty. Good research identifies what is known, what is estimated, and what could change the conclusion. When we discuss a scenario or express a judgment, we will label it accordingly and distinguish it from sourced facts.
 
