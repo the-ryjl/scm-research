@@ -6,15 +6,14 @@ import FilterControls from '../../components/FilterControls.astro';
 import EmptyState from '../../components/EmptyState.astro';
 import { byNewest } from '../../lib/content';
 const publications = (await getCollection('publications', ({ data }) => !data.draft)).sort(byNewest);
-const authors = await getCollection('authors');
 const unique = (values: string[]) => [...new Set(values)].sort();
 ---
-<BaseLayout title="Research Archive" description="Browse all student-produced Stern Capital Research publications by category, sector, pod, document type, and author.">
+<BaseLayout title="Research Archive" description="Browse all student-produced Stern Capital Research publications by category, sector, pod, and document type.">
   <header class="page-intro"><div class="shell page-intro-grid"><div><span class="eyebrow">Publication library</span><h1>Research archive</h1></div><div><p>Browse student-produced investment theses, sector reports, market commentary, and educational primers.</p><span class="publication-count">{publications.length} publications · Updated regularly</span></div></div></header>
   <section class="archive-section shell">
-    <FilterControls categories={unique(publications.map((p) => p.data.category))} sectors={unique(publications.map((p) => p.data.sector))} pods={unique(publications.flatMap((p) => p.data.pod ? [p.data.pod] : []))} documentTypes={unique(publications.map((p) => p.data.documentType))} authors={authors.map((author) => ({ id: author.id, name: author.data.name }))} />
+    <FilterControls categories={unique(publications.map((p) => p.data.category))} sectors={unique(publications.map((p) => p.data.sector))} pods={unique(publications.flatMap((p) => p.data.pod ? [p.data.pod] : []))} documentTypes={unique(publications.map((p) => p.data.documentType))} />
     <div class="archive-status"><span>Showing <strong data-result-count>{publications.length}</strong> publications</span><span>Newest first</span></div>
-    <div class="article-grid" data-results>{publications.map((publication, index) => <ArticleCard publication={publication} author={authors.find((author) => author.id === publication.data.author)} index={index} />)}</div>
+    <div class="article-grid" data-results>{publications.map((publication, index) => <ArticleCard publication={publication} index={index} />)}</div>
     <EmptyState />
   </section>
   <script is:inline>

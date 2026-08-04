@@ -1,7 +1,6 @@
 ---
 title: "Introducing Research @ Stern Capital Management"
 description: "Introducing SCM Research, a student-led publication built around Stern Capital Management's investment pod program."
-author: scm-research-team
 publishedDate: 2026-07-22
 updatedDate: 2026-08-04
 category: Organization Update
@@ -47,7 +46,7 @@ Our goal is not to manufacture certainty. Good research identifies what is known
 
 SCM Research is both a publication and a learning process. Contributors will develop a question, gather and evaluate evidence, pressure-test their reasoning with other members, and revise their work before publication. That process is designed to reward curiosity, intellectual honesty, and clear communication—not just a polished conclusion.
 
-Team-attributed pieces will represent collaborative work across the organization. Individual bylines will allow contributors to take ownership of their analysis while benefiting from the same editorial review.
+Every publication appears under the SCM Research Team byline, reflecting a collaborative process in which contributors take ownership of their analysis while benefiting from shared editorial review.
 
 ## Welcome all readers!
 

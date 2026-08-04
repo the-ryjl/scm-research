@@ -1,9 +1,9 @@
 ---
-import type { Publication, Author } from '../lib/content';
+import type { Publication } from '../lib/content';
 import CategoryBadge from './CategoryBadge.astro';
 import ArticleMetadata from './ArticleMetadata.astro';
-interface Props { publication: Publication; author?: Author; }
-const { publication, author } = Astro.props;
+interface Props { publication: Publication; }
+const { publication } = Astro.props;
 ---
 <article class="featured-article">
   <div class="featured-copy">
@@ -11,7 +11,7 @@ const { publication, author } = Astro.props;
     <CategoryBadge label={publication.data.category} tone="dark" />
     <h2><a href={`/research/${publication.id}/`}>{publication.data.title}</a></h2>
     <p>{publication.data.description}</p>
-    <ArticleMetadata publication={publication} author={author} inverse />
+    <ArticleMetadata publication={publication} inverse />
     <a class="text-link light" href={`/research/${publication.id}/`}>Read the publication <span aria-hidden="true">→</span></a>
   </div>
   <div class="featured-visual" aria-hidden="true">

@@ -9,7 +9,6 @@ const publications = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    author: z.string(),
     publishedDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     category: z.string(),
@@ -25,20 +24,4 @@ const publications = defineCollection({
   })
 });
 
-const authors = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/authors' }),
-  schema: z.object({
-    name: z.string(),
-    authorType: z.enum(['person', 'team']).default('person'),
-    role: z.string(),
-    biography: z.string(),
-    headshot: z.string().optional(),
-    linkedin: z.url().optional(),
-    email: z.email().optional(),
-    pod: investmentPod.optional(),
-    scope: z.string().optional(),
-    graduationYear: z.number().int().optional()
-  })
-});
-
-export const collections = { publications, authors };
+export const collections = { publications };

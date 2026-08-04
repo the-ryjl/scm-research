@@ -19,17 +19,13 @@ npm run build
 
 1. Duplicate any file in `src/content/publications/`.
 2. Rename it with a lowercase, hyphenated slug such as `new-company-thesis.md`. The file name becomes the article URL.
-3. Complete every frontmatter field. `author` must match an author file name in `src/content/authors/`.
+3. Complete every frontmatter field. Every publication is automatically attributed to the SCM Research Team.
 4. Write the article in Markdown beneath the frontmatter.
 5. Keep `draft: true` while editing, then change it to `false` to publish.
 
-Publication fields are validated in `src/content.config.ts`: title, description, author, dates, category, sector, document type, tags, featured/draft status, optional pod and cover image, reading time, and ticker symbols.
+Publication fields are validated in `src/content.config.ts`: title, description, dates, category, sector, document type, tags, featured/draft status, optional pod and cover image, reading time, and ticker symbols.
 
-All new content should preserve the educational disclaimer and distinguish sourced facts from estimates, scenarios, and author judgments.
-
-## Add an author
-
-Create a Markdown file in `src/content/authors/`. The file name is the author ID used by publications. Include name, role, biography, pod, and graduation year. Headshot, LinkedIn, and email are optional. Until a headshot is supplied, the design displays the author's initials.
+All new content should preserve the educational disclaimer and distinguish sourced facts from estimates, scenarios, and research judgments.
 
 ## Edit the theme
 
@@ -51,7 +47,7 @@ The site is statically generated, so no Astro adapter is required. `vercel.json`
 ```text
 src/
   components/        Reusable editorial UI
-  content/           Authors and Markdown publications
+  content/           Markdown publications
   content.config.ts  Collection schemas
   layouts/           Shared document and SEO layout
   pages/             Static and dynamic routes, robots
