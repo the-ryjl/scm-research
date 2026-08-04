@@ -26,8 +26,8 @@ const related = all.filter((item) => item.id !== entry.id && (item.data.category
     </div>
   </header>
   <div class="article-layout">
-    <aside class="article-aside"><div class="article-aside-inner"><h2>Written by</h2><div class="article-byline"><strong>SCM Research Team</strong><span>Technology and Fixed Income and Credit</span></div><TagList tags={entry.data.tags} /></div></aside>
-    <article class="prose"><Content /><div class="article-disclaimer"><strong>Important:</strong> This placeholder research was produced for educational demonstration. Figures and scenarios are illustrative, investments are simulated, and nothing here is investment advice or a recommendation.</div></article>
+    <aside class="article-aside"><div class="article-aside-inner"><h2>Written by</h2><div class="article-byline"><strong>SCM Research Team</strong><span>{entry.data.pod ? `${entry.data.pod} Pod` : entry.data.sector}</span></div><TagList tags={entry.data.tags} /></div></aside>
+    <article class="prose"><Content /><div class="article-disclaimer"><strong>Important:</strong> SCM Research is produced by students for educational purposes only. It is not investment advice, an offer, or a solicitation to buy or sell any security. Estimates and price targets reflect the authors' judgment as of the report date and are subject to change without notice.</div></article>
   </div>
   <RelatedArticles publications={related} />
 </BaseLayout>
